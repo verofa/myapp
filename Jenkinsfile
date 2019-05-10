@@ -6,7 +6,7 @@ pipeline {
    }
   environment {
     DOCKER_FILE="Dockerfile"
-    DOCKER_PUSH_REPO="hub.docker.com"
+    DOCKER_PUSH_REPO="verogo"
     DOCKER_IMAGE="myapp"
     DOCKER_TAG="1.0"
     USERNAME="verogo"
