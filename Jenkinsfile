@@ -9,8 +9,7 @@ pipeline {
     DOCKER_PUSH_REPO="hub.docker.com"
     DOCKER_IMAGE="myapp"
     DOCKER_TAG="1.0"
-    USERNAME="username"
-    EMAIL="docker hub"
+    USERNAME="verogo"
   }
   stages {
        stage('checkout repo') {
@@ -22,7 +21,7 @@ pipeline {
        stage('docker login') {
             steps {
               sh """
-              docker login --username="$USERNAME" --email="$EMAIL"
+              docker login --username="$USERNAME" --password="$PASSWORD"
               """
             }
         }
