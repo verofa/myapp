@@ -1,0 +1,16 @@
+#!/bin/bash
+
+DOCKER_PUSH_REPO="hub.docker.com"
+DOCKER_IMAGE="myapp"
+DOCKER_TAG="1.0"
+BUILD_NUMER="0"
+USERNAME="username"
+EMAIL="docker hub"
+
+
+
+docker login --username="$USERNAME" --email="$EMAIL"
+docker build -t $DOCKER_IMAGE:$DOCKER_TAG.$BUILD_NUMBER .
+docker tag "$DOCKER_IMAGE:$DOCKER_TAG.$BUILD_NUMBER" "$DOCKER_PUSH_REPO/$DOCKER_IMAGE:$DOCKER_TAG.$BUILD_NUMBER"
+docker push "$DOCKER_PUSH_REPO/$DOCKER_IMAGE:$DOCKER_TAG.$BUILD_NUMBER"
+docker run --name myobapp -e 8080:80 "$DOCKER_IMAGE:$DOCKER_TAG.$BUILD_NUMBER"
